@@ -1,0 +1,35 @@
+.sidenav {
+  
+    
+    
+    background-color :#D91D1D;
+    
+   
+  }
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    color:#F2F2F7;
+    width: 50px;
+    height: 85px;
+    
+    display:block;
+  }
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+.top{
+  display: grid;
+  grid-template-columns: 200px auto ;
+  grid-template-rows: 30px auto ;
+  row-gap: 1rem;
+}
+.sidenav{
+  height: 100vh;
+  grid-row: 1/-1;
+}
+  
+
+
+  

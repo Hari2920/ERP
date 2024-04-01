@@ -1,0 +1,29 @@
+<p>
+  <mat-toolbar>
+    <span style="text-align: center">ERP</span>
+    <button mat-raised-button color="accent" style="margin-left: 1200px">
+      Register
+    </button>
+  </mat-toolbar>
+</p>
+<div class="hari">
+  <form [formGroup]="form" style="text-align: center" (ngSubmit)="submitForm()">
+    <h3 mat-dialog-title style="text-align: center">Login</h3>
+    <div mat-dialog-content>
+      <div style="margin-bottom: 16px">
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input formControlName="username" matInput />
+        </mat-form-field>
+      </div>
+
+      <div style="margin-bottom: 16px">
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input formControlName="password" matInput type="password" />
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary">Login</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,85 @@
+<div class="top">
+  <div>
+    <mat-toolbar>
+      <span style="text-align: center">ERP</span>
+    </mat-toolbar>
+  </div>
+  <div class="sidenav">
+    <mat-nav-list>
+      <mat-list-item>
+        <button class="size" routerLink="user" mat-button>
+          <mat-icon>analytics</mat-icon> User
+        </button>
+      </mat-list-item>
+
+      <div *ngIf="">
+        <mat-list-item>
+          <button class="size" routerLink="jobs" mat-button>
+            <mat-icon>work</mat-icon>Applicant
+          </button>
+        </mat-list-item>
+      </div>
+
+      <div *ngIf="isHr">
+        <mat-list-item>
+          <button class="size" routerLink="department" mat-button>
+            <mat-icon>dashboard</mat-icon> Department
+          </button>
+        </mat-list-item>
+
+        <mat-list-item>
+          <button class="size" routerLink="role" mat-button>
+            <mat-icon>table</mat-icon> Role
+          </button>
+        </mat-list-item>
+
+        <mat-list-item>
+          <button class="size" routerLink="plant" mat-button>
+            <mat-icon>factory</mat-icon> Plant
+          </button>
+        </mat-list-item>
+
+        <mat-list-item>
+          <button class="size" routerLink="store" mat-button>
+            <mat-icon>store</mat-icon> Store
+          </button>
+        </mat-list-item>
+
+        <mat-list-item>
+          <button class="size" routerLink="item" mat-button>
+            <mat-icon>category</mat-icon>Item
+          </button>
+        </mat-list-item>
+
+        <mat-list-item>
+          <button class="size" routerLink="vendor" mat-button>
+            <mat-icon>tabs</mat-icon>Vendor
+          </button>
+        </mat-list-item>
+      </div>
+      <div *ngIf="isAcc">
+        <mat-list-item>
+          <button class="size" routerLink="purchaseorder" mat-button>
+            <mat-icon>tabs</mat-icon>Purchase Order
+          </button>
+        </mat-list-item>
+      </div>
+
+      <div *ngIf="isSs">
+        <mat-list-item>
+          <button class="size" routerLink="grn" mat-button>
+            <mat-icon>shopping_basket</mat-icon>GRN
+          </button>
+        </mat-list-item>
+      </div>
+      <mat-list-item>
+        <button class="size" (click)="logout()" mat-button>
+          <mat-icon>login</mat-icon>Logout
+        </button>
+      </mat-list-item>
+    </mat-nav-list>
+  </div>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

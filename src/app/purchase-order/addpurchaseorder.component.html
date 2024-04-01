@@ -1,0 +1,51 @@
+<h3 style="text-align: center">Add Purchase Order details</h3>
+<button mat-raised-button color="warn">
+  <mat-icon
+    aria-hidden="false"
+    aria-label="Example home icon"
+    fontIcon="close"
+    (click)="Close()"
+  ></mat-icon>
+</button>
+<form [formGroup]="form" style="text-align: center" (ngSubmit)="submitForm()">
+  <div mat-dialog-content>
+    <div style="margin-bottom: 16px">
+      <mat-form-field>
+        <mat-label>Vendor Name</mat-label>
+        <mat-select formControlName="vendor_id">
+          <mat-option *ngFor="let v of vendor" [value]="v.vendor_id">{{
+            v.vendor_name
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div style="margin-bottom: 16px">
+      <mat-form-field>
+        <mat-label>Required Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="required_date"
+        />
+
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div style="margin-bottom: 16px">
+      <mat-form-field>
+        <mat-label>Plant Name</mat-label>
+        <mat-select formControlName="plant_id">
+          <mat-option *ngFor="let p of plant" [value]="p.plant_id">{{
+            p.plant_name
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary">Submit</button>
+  </div>
+</form>

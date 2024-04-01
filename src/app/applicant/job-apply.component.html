@@ -1,0 +1,99 @@
+<h3 style="text-align: center">Enter the details</h3>
+<form
+  [formGroup]="form"
+  class="example-form"
+  style="text-align: center"
+  (ngSubmit)="submitForm()"
+>
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>FirstName</mat-label>
+      <input matInput placeholder="FirstName" formControlName="firstname" />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>LastName</mat-label>
+      <input matInput placeholder="LastName" formControlName="lastname" />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" formControlName="email" />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Phone No</mat-label>
+      <input matInput placeholder="Phone" formControlName="phone_no" />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Experience</mat-label>
+      <input matInput placeholder="exp" formControlName="exp" />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>city</mat-label>
+      <input matInput placeholder="city" formControlName="city" />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Previous Company</mat-label>
+      <input
+        matInput
+        placeholder="Previous company"
+        formControlName="previous_company"
+      />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>previous_salary</mat-label>
+      <input matInput placeholder="salary" formControlName="previous_salary" />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Expected Salary</mat-label>
+      <input
+        matInput
+        placeholder="Expected salary"
+        formControlName="expected_salary"
+      />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Notice Period</mat-label>
+      <input
+        matInput
+        placeholder="notice period"
+        formControlName="notice_period"
+      />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Date Of Availability</mat-label>
+      <input
+        matInput
+        placeholder="Date"
+        formControlName="data_of_availability"
+      />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Pin</mat-label>
+      <input matInput placeholder="pin" formControlName="pin" />
+    </mat-form-field>
+  </div>
+  <button mat-raised-button color="primary">apply</button>
+</form>

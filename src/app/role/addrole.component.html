@@ -1,0 +1,30 @@
+<h3 style="text-align: center">Add Role details</h3>
+<button mat-raised-button color="warn">
+  <mat-icon
+    aria-hidden="false"
+    aria-label="Example home icon"
+    fontIcon="close"
+    (click)="Close()"
+  ></mat-icon>
+</button>
+<form [formGroup]="form" style="text-align: center" (ngSubmit)="SubmitForm()">
+  <div mat-dialog-content>
+    <div style="margin-bottom: 16px">
+      <mat-form-field>
+        <mat-label>Role Name</mat-label>
+        <input formControlName="role_name" matInput />
+      </mat-form-field>
+    </div>
+    <div style="margin-bottom: 16px">
+      <mat-form-field matInput>
+        <mat-label>Departmentid </mat-label>
+        <mat-select formControlName="dept_id">
+          <mat-option *ngFor="let dept of departments" [value]="dept.dept_id">{{
+            dept.dept_name
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary">Submit</button>
+  </div>
+</form>

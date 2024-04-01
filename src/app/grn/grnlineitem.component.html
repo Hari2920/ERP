@@ -1,0 +1,102 @@
+<h3 style="text-align: center">Add GRN LineItem</h3>
+<form [formGroup]="form">
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>GRN ID</mat-label>
+      <mat-select
+        (selectionChange)="onChanges($event)"
+        formControlName="grn_id"
+      >
+        <mat-option *ngFor="let p of allitem" value="{{ p.grn_id }}">
+          {{ p.grn_id }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field style="margin-left: 20px">
+      <mat-label>Items</mat-label>
+      <mat-select formControlName="item_code">
+        <mat-option *ngFor="let i of alldetail" value="{{ i.item_code }}">
+          {{ i.item_name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field style="margin-left: 20px">
+      <mat-label>Quantity Needed</mat-label>
+      <mat-select formControlName="quantity">
+        <mat-option *ngFor="let i of alldetail" value="{{ i.quantity }}">
+          {{ i.quantity }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field style="margin-left: 20px">
+      <mat-label>Quantity Supplied</mat-label>
+      <input
+        (input)="change($event)"
+        formControlName="quantity_supplied"
+        matInput
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Purchase LineItem_ID</mat-label>
+      <mat-select formControlName="l_id">
+        <mat-option *ngFor="let i of alldetail" value="{{ i.l_id }}">
+          {{ i.quantity }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button
+      (click)="add()"
+      class="save"
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="hi"
+    >
+      Save
+    </button>
+    <button mat-raised-button color="warn">Cancel</button>
+  </div>
+</form>
+
+<h3 style="text-align: center">Line table</h3>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="grn_id">
+    <th mat-header-cell *matHeaderCellDef>GRN_ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.grn_id }}</td>
+  </ng-container>
+
+  <!-- <ng-container matColumnDef="item_name">
+    <th mat-header-cell *matHeaderCellDef>Item Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.item_name }}</td>
+  </ng-container> -->
+
+  <ng-container matColumnDef="quantity">
+    <th mat-header-cell *matHeaderCellDef>Quantity</th>
+    <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="l_id">
+    <th mat-header-cell *matHeaderCellDef>Purchase LineItem_ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.l_id }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<div style="text-align: center">
+  <button
+    class="save"
+    type="submit"
+    mat-raised-button
+    color="primary"
+    (click)="submit($event)"
+  >
+    Save
+  </button>
+</div>

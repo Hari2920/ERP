@@ -1,0 +1,45 @@
+<div class="top">
+  <div class="bt">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="openDialog()"
+      matTooltip="Add Store info"
+    >
+      Add Store
+    </button>
+  </div>
+  <div class="table">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Position Column -->
+      <ng-container matColumnDef="store_id">
+        <th mat-header-cell *matHeaderCellDef>Store Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.store_id }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="store_name">
+        <th mat-header-cell *matHeaderCellDef>Store Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.store_name }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="plant_id">
+        <th mat-header-cell *matHeaderCellDef>Plant ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.plant_id }}</td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  <mat-paginator
+    [length]="100"
+    [pageSize]="5"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>

@@ -1,0 +1,65 @@
+<h3 style="text-align: center">Add GRN Details</h3>
+<form [formGroup]="form" style="text-align: center" (ngSubmit)="submitForm()">
+  <div mat-dialog-content>
+    <div>
+      <mat-form-field>
+        <mat-label>purchase Number </mat-label>
+        <mat-select
+          (selectionChange)="onChanges($event)"
+          formControlName="po_number"
+        >
+          <mat-option *ngFor="let p of allgoods" [value]="p.po_number">{{
+            p.po_number
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>vendor Name </mat-label>
+        <mat-select formControlName="vendor_id">
+          <mat-option *ngFor="let p of allitems" [value]="p.vendor_id">{{
+            p.vendor_name
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Store Name </mat-label>
+        <mat-select formControlName="store_id">
+          <mat-option *ngFor="let p of allitems" [value]="p.store_id">{{
+            p.store_name
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Supplied Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="supplied_on"
+        />
+
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Gatepass</mat-label>
+        <input formControlName="gatepass" matInput />
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary">Submit</button>
+  </div>
+</form>

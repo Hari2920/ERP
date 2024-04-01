@@ -1,0 +1,131 @@
+<div class="top">
+  <div class="bt">
+    <!-- <mat-label>Search</mat-label> -->
+    <!-- input matInput placeholder="search" (keyup)="Filterchange($event)"> -->
+    <!-- (click)="openDialog()" -->
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="openGRN()"
+      style="margin-bottom: 16px"
+      matTooltip="Add GRN info"
+    >
+      Add GRN
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="openGRNLine()"
+      matTooltip="Add GRN LineItem info"
+    >
+      Add GRN LineItems
+    </button>
+    <!-- <button mat-raised-button color="primary" (click)="openGRN()">
+      Add LineItems
+    </button> -->
+    <!-- (click)="openDialog()" -->
+  </div>
+  <div class="table">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="grn_id">
+        <th mat-header-cell *matHeaderCellDef>GRN ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.grn_id }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="po_number">
+        <th mat-header-cell *matHeaderCellDef>po Number</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.po_number }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="supplied_on">
+        <th mat-header-cell *matHeaderCellDef>Supplied Date</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.supplied_on | date : "dd-mm-yyyy" }}
+        </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="vendor_name">
+        <th mat-header-cell *matHeaderCellDef>Vendor Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.vendor_name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="plant_name">
+        <th mat-header-cell *matHeaderCellDef>Plant Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.plant_name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="store_name">
+        <th mat-header-cell *matHeaderCellDef>Store Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.store_name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="gatepass">
+        <th mat-header-cell *matHeaderCellDef>Gatepass</th>
+        <td mat-cell *matCellDef="let element">{{ element.gatepass }}</td>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Preview</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              (click)="addTo(element.grn_id)"
+              mat-raised-button
+              color="primary"
+            >
+              <mat-icon
+                aria-hidden="false"
+                aria-label="Example home icon"
+                fontIcon="ios_share"
+              ></mat-icon>
+            </button>
+          </td>
+        </ng-container>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>
+<!------------------------------------------------------------------------>
+<h3 style="text-align: center">GRN Line Table</h3>
+<table mat-table [dataSource]="source">
+  <ng-container matColumnDef="gl_id">
+    <th mat-header-cell *matHeaderCellDef>GRN LineItem_ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.gl_id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="grn_id">
+    <th mat-header-cell *matHeaderCellDef>GRN ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.grn_id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="l_id">
+    <th mat-header-cell *matHeaderCellDef>LineItem_ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.l_id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="quantity">
+    <th mat-header-cell *matHeaderCellDef>Quantity</th>
+    <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="quantity_supplied">
+    <th mat-header-cell *matHeaderCellDef>Supplied Quantity</th>
+    <td mat-cell *matCellDef="let element">{{ element.quantity_supplied }}</td>
+  </ng-container>
+
+  <!-- <ng-container matColumnDef="uom">
+    <th mat-header-cell *matHeaderCellDef>UOM</th>
+    <td mat-cell *matCellDef="let element">{{ element.uom }}</td>
+  </ng-container> -->
+  <tr mat-header-row *matHeaderRowDef="displayed"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayed"></tr>
+</table>

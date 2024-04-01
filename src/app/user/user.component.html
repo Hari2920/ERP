@@ -1,0 +1,57 @@
+<div class="top">
+  <div class="bt">
+    <input
+      (keyup)="setFilter($event)"
+      matInput
+      type="text"
+      placeholder="search"
+    />
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="openDialog()"
+      matTooltip="Add user info"
+    >
+      Add user
+    </button>
+  </div>
+  <div class="table">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+      <ng-container matColumnDef="user_id">
+        <th mat-header-cell *matHeaderCellDef>User ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.user_id }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef>Username</th>
+        <td mat-cell *matCellDef="let element">{{ element.username }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="dept_name">
+        <th mat-header-cell *matHeaderCellDef>Department Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.dept_name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="role_name">
+        <th mat-header-cell *matHeaderCellDef>Role Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.role_name }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <div>
+      <mat-paginator
+        [length]="100"
+        [pageSize]="5"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page"
+      >
+      </mat-paginator>
+    </div>
+  </div>
+</div>

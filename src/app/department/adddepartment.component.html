@@ -1,0 +1,30 @@
+<h3 style="text-align: center">Add Department details</h3>
+<button mat-raised-button color="warn">
+  <mat-icon
+    aria-hidden="false"
+    aria-label="Example home icon"
+    fontIcon="close"
+    (click)="Close()"
+  ></mat-icon>
+</button>
+<form
+  [formGroup]="form"
+  style="text-align: center"
+  (ngSubmit)="submitForm(form)"
+>
+  <div mat-dialog-content>
+    <div style="margin-bottom: 16px">
+      <mat-form-field>
+        <mat-label>Department Name</mat-label>
+        <input formControlName="dept_name" matInput />
+      </mat-form-field>
+    </div>
+    <div style="margin-bottom: 16px">
+      <mat-form-field>
+        <mat-label>Short Name</mat-label>
+        <input formControlName="short_id" matInput />
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary">Submit</button>
+  </div>
+</form>
